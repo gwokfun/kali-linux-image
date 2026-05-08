@@ -20,7 +20,7 @@ variable "TAG" {
 }
 
 variable "REGISTRY" {
-  default = "vxcontrol"
+  default = "gwokfun"
 }
 
 # Base Kali Linux image with essential penetration testing tools
@@ -40,16 +40,16 @@ target "base" {
   
   # Build metadata
   labels = {
-    "org.opencontainers.image.title" = "Kali Linux Penetration Testing Image"
-    "org.opencontainers.image.description" = "AI-ready Kali Linux container with 200+ curated CLI penetration testing tools"
-    "org.opencontainers.image.url" = "https://hub.docker.com/r/vxcontrol/kali-linux"
-    "org.opencontainers.image.documentation" = "https://github.com/vxcontrol/kali-linux-image/blob/master/README.md"
-    "org.opencontainers.image.source" = "https://github.com/vxcontrol/kali-linux-image"
-    "org.opencontainers.image.vendor" = "vxcontrol"
+    "org.opencontainers.image.title" = "Kali Linux Penetration Testing Image with HexStrike AI"
+    "org.opencontainers.image.description" = "AI-ready Kali Linux container with 200+ curated CLI penetration testing tools and HexStrike AI server"
+    "org.opencontainers.image.url" = "https://hub.docker.com/r/gwokfun/kali-linux"
+    "org.opencontainers.image.documentation" = "https://github.com/gwokfun/kali-linux-image/blob/master/README.md"
+    "org.opencontainers.image.source" = "https://github.com/gwokfun/kali-linux-image"
+    "org.opencontainers.image.vendor" = "gwokfun"
     "org.opencontainers.image.licenses" = "MIT"
     "org.opencontainers.image.version" = "${TAG}"
-    "com.vxcontrol.dockerfile.url" = "https://raw.githubusercontent.com/vxcontrol/kali-linux-image/master/Dockerfile"
-    "com.vxcontrol.license.url" = "https://raw.githubusercontent.com/vxcontrol/kali-linux-image/master/LICENSE"
+    "com.gwokfun.dockerfile.url" = "https://raw.githubusercontent.com/gwokfun/kali-linux-image/master/Dockerfile"
+    "com.gwokfun.license.url" = "https://raw.githubusercontent.com/gwokfun/kali-linux-image/master/LICENSE"
   }
 }
 
@@ -75,15 +75,15 @@ target "systemd" {
   
   # Build metadata
   labels = {
-    "org.opencontainers.image.title" = "Kali Linux Penetration Testing Image (Systemd)"
-    "org.opencontainers.image.description" = "AI-ready Kali Linux container with systemctl support and 200+ penetration testing tools"
-    "org.opencontainers.image.url" = "https://hub.docker.com/r/vxcontrol/kali-linux"
-    "org.opencontainers.image.documentation" = "https://github.com/vxcontrol/kali-linux-image/blob/master/README.md"
-    "org.opencontainers.image.source" = "https://github.com/vxcontrol/kali-linux-image"
-    "org.opencontainers.image.vendor" = "vxcontrol"
+    "org.opencontainers.image.title" = "Kali Linux Penetration Testing Image with HexStrike AI (Systemd)"
+    "org.opencontainers.image.description" = "AI-ready Kali Linux container with systemctl support, 200+ penetration testing tools and HexStrike AI server"
+    "org.opencontainers.image.url" = "https://hub.docker.com/r/gwokfun/kali-linux"
+    "org.opencontainers.image.documentation" = "https://github.com/gwokfun/kali-linux-image/blob/master/README.md"
+    "org.opencontainers.image.source" = "https://github.com/gwokfun/kali-linux-image"
+    "org.opencontainers.image.vendor" = "gwokfun"
     "org.opencontainers.image.licenses" = "MIT"
     "org.opencontainers.image.version" = "${TAG}"
-    "com.vxcontrol.dockerfile.url" = "https://raw.githubusercontent.com/vxcontrol/kali-linux-image/master/Dockerfile"
-    "com.vxcontrol.license.url" = "https://raw.githubusercontent.com/vxcontrol/kali-linux-image/master/LICENSE"
+    "com.gwokfun.dockerfile.url" = "https://raw.githubusercontent.com/gwokfun/kali-linux-image/master/Dockerfile"
+    "com.gwokfun.license.url" = "https://raw.githubusercontent.com/gwokfun/kali-linux-image/master/LICENSE"
   }
 }
