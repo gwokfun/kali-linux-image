@@ -92,6 +92,11 @@ RUN pip install --no-cache-dir \
     impacket \
     scapy
 
+# Install HexStrike AI dependencies
+COPY hexstrike-requirements.txt /tmp/hexstrike-requirements.txt
+RUN pip install --no-cache-dir -r /tmp/hexstrike-requirements.txt && \
+    rm /tmp/hexstrike-requirements.txt
+
 ENV PATH="/usr/local/go/bin:${PATH}"
 ENV GOPATH="/root/go"
 ENV PATH="${GOPATH}/bin:${PATH}"
@@ -121,6 +126,20 @@ RUN set -e && \
     /usr/local/go/bin/go install github.com/lc/gau/v2/cmd/gau@latest && \
     /usr/local/go/bin/go install github.com/hakluke/hakrawler@latest && \
     rm -rf /root/go/pkg/*
+
+# Copy HexStrike AI server files
+COPY hexstrike_server.py /opt/hexstrike/hexstrike_server.py
+COPY hexstrike_mcp.py /opt/hexstrike/hexstrike_mcp.py
+COPY hexstrike-ai-mcp.json /opt/hexstrike/hexstrike-ai-mcp.json
+COPY start-hexstrike.sh /usr/local/bin/start-hexstrike
+RUN chmod +x /usr/local/bin/start-hexstrike
+
+# Create HexStrike log directory
+RUN mkdir -p /var/log/hexstrike && chmod 777 /var/log/hexstrike
+
+# Environment variables for HexStrike
+ENV HEXSTRIKE_PORT=8888
+ENV HEXSTRIKE_HOST=0.0.0.0
 
 # Set working directory
 RUN mkdir -p /work
